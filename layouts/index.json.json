@@ -1,0 +1,8 @@
+{{ define "response" }}
+[
+  {{ $pages := where .Site.RegularPages "Type" "in" .Site.Params.mainSections }}
+  {{ range $index, $e := $pages }}
+    {{ if $index }}, {{ end }}{{ .Render "li" }}
+  {{ end }}
+]
+{{ end }}
